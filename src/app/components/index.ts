@@ -1,0 +1,1 @@
+export * from './note-list/note-list.component'
