@@ -1,0 +1,23 @@
+:root {
+  --orange: #fbecd9;
+  --cyan: #c3e8ef;
+  --blue: #37c7f2;
+
+  --light-orange: #fefaf6;
+  --light-cyan: #f2fafc;
+
+  --dark-orange: #f7dec5;
+  --dark-cyan: #b3dde6;
+
+  --darker-cyan: #6ecbc3;
+
+  --nunito: "Nunito", sans-serif;
+  --primary: var(--orange);
+  --link: $blue;
+
+  --body-bg-color: $light;
+  --control-border-width: 2px;
+  --input-border-color: transparent;
+  --input-bg-color: #f3f5fa;
+  --input-shadow: none;
+}

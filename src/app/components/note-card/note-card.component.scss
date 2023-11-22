@@ -1,0 +1,78 @@
+.note-card {
+  position: relative;
+  background: var(--light-orange);
+  border-radius: 10px;
+
+  box-shadow: 0px 2px 15px 2px rgba(#000, 0.068);
+
+  transition: box-shadow 0.25s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 4px rgba(#000, 0.068);
+  }
+
+  .note-card-content {
+    padding: 25px;
+
+    .note-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--darker-cyan);
+      margin-bottom: 15px;
+    }
+
+    .note-card-body {
+      position: relative;
+
+      color: darken(#c3e8ef, 65%);
+
+      //The maximum height before it's truncated
+      max-height: 80px;
+      overflow: hidden;
+
+      .fade-out-truncation {
+        position: absolute;
+
+        pointer-events: none;
+
+        bottom: 0;
+
+        height: 50%;
+        width: 100%;
+
+        background: linear-gradient(
+          180deg,
+          rgba(#fefaf6, 0),
+          rgba(#fefaf6, 0.7),
+          rgba(#fefaf6, 1)
+        );
+      }
+    }
+  }
+}
+
+.del-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  height: 30px;
+  width: 30px;
+
+  border-radius: 50%;
+
+  background: url(../../../assets/del-disabled.svg) center no-repeat;
+
+  opacity: 0.2;
+  transition: opacity 0.25s ease-in-out; /* добавлен переход */
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    background: url(../../../assets/del-enabled.svg) center no-repeat;
+    opacity: 1;
+  }
+}

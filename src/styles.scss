@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+// @import '../node_modules/normalize-scss/sass/normalize';
+@import '../node_modules/reset-css/sass/reset';
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* VARIABLES */
+@import 'variables';
+
+/* GLOBAL STYLES */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--nunito);
+  background-color: #fff;
+}

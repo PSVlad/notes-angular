@@ -1,0 +1,34 @@
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+
+  .page-content {
+    flex-grow: 1;
+    overflow-y: scroll;
+  }
+}
+
+.top-bar {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(45deg, var(--orange) 35%, var(--cyan) 65%);
+
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-shrink: 0;
+
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: #6ecbc3;
+    font-size: 40px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px var(--dark-cyan);
+    text-align: center;
+  }
+}
