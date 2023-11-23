@@ -1,7 +1,8 @@
 <div class="main">
+
   <div class="search">
     <p class="control">
-      <input type="text" class="input" placeholder="Search" />
+      <input type="text" class="input" (keyup)="filter($event)" placeholder="Search" />
       <span class="icon">
         <i class="fas fa-search"></i>
       </span>
@@ -10,11 +11,13 @@
 
   <div class="notes-list">
     <app-note-card 
-      *ngFor="let note of notes; index as i"
+      *ngFor="let note of filteredNotes; index as i"
       [link]="i.toString()"
       (del)="delNote(i)"
       [title]="note.title"
       [body]="note.body"
+
+      [@itemAnim]
 
     >
     </app-note-card>

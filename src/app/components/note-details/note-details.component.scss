@@ -87,7 +87,8 @@
 
 input, textarea {
 
-  text-wrap: wrap;
+  word-wrap: break-word;
+  text-wrap: unrestricted;
   overflow-wrap: break-word;
 
   &.ng-invalid.ng-touched {
