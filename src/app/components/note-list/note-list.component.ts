@@ -67,16 +67,16 @@ export class NoteListComponent implements OnInit {
   filteredNotes: Note[] = new Array<Note>();
 
   constructor(
-    private notesServices: NotesService
+    private notesService: NotesService
   ) { }
 
   ngOnInit() { // Используйте правильное имя метода
-    this.notes = this.notesServices.getAll();
-    this.filteredNotes = this.notes;
+    this.notes = this.notesService.getAll();
+    this.filteredNotes = this.notesService.getAll();
   }
 
   delNote(id: number) {
-    this.notesServices.delete(id);
+    this.notesService.delete(id);
   }
 
   filter(event: any) {
@@ -90,14 +90,15 @@ export class NoteListComponent implements OnInit {
     terms = this.removeDuplicates(terms);
 
     terms.forEach(term => {
-      let results: Note[]  = this.relevantNotes(term);
-      
+      let results: Note[] = this.relevantNotes(term);
+
       allResults = [...allResults, ...results]
     });
 
     let uniqueResults = this.removeDuplicates(allResults);
     this.filteredNotes = uniqueResults;
 
+    this.sortByRelevancy(allResults);
 
   }
 
@@ -109,21 +110,46 @@ export class NoteListComponent implements OnInit {
     return Array.from(uniqueResults);
   }
 
-  relevantNotes (query: string): Array<Note> {  
+  relevantNotes(query: string): Array<Note> {
     query = query.toLowerCase().trim();
 
     let relevantNotes = this.notes.filter(note => {
       if (note.title && note.title.toLowerCase().includes(query)) {
         return true;
       }
-      
+
       if (note.body && note.body.toLowerCase().includes(query)) {
         return true;
       }
-      
+
       return false;
     })
 
     return relevantNotes;
+  }
+
+  sortByRelevancy(searchResults: Note[]) {
+    let noteCountObj: { [key: number]: number } = {}; // Явное указание типа
+  
+    searchResults.forEach(note => {
+      let noteId = this.notesService.getId(note);
+  
+      if (noteCountObj[noteId]) {
+        noteCountObj[noteId] += 1;
+      } else {
+        noteCountObj[noteId] = 1;
+      }
+    });
+  
+    this.filteredNotes = this.filteredNotes.sort((a: Note, b: Note) => {
+      let aId = this.notesService.getId(a);
+      let bId = this.notesService.getId(b);
+
+      let aCount = noteCountObj[aId];
+      let bCount = noteCountObj[bId];
+  
+
+      return bCount - aCount;
+    });
   }
 }
