@@ -75,8 +75,16 @@ export class NoteListComponent implements OnInit {
     this.filteredNotes = this.notesService.getAll();
   }
 
-  delNote(id: number) {
-    this.notesService.delete(id);
+  delNote(note: Note) {
+    let noteId = this.notesService.getId(note);
+
+    this.notesService.delete(noteId);
+  }
+
+  generateNoteURL (note: Note): string{
+    let noteId = this.notesService.getId(note).toString();
+
+    return noteId;
   }
 
   filter(event: any) {

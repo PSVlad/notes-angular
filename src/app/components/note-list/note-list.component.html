@@ -11,9 +11,9 @@
 
   <div class="notes-list">
     <app-note-card 
-      *ngFor="let note of filteredNotes; index as i"
-      [link]="i.toString()"
-      (del)="delNote(i)"
+      *ngFor="let note of filteredNotes;"
+      [link]="generateNoteURL(note)"
+      (del)="delNote(note)"
       [title]="note.title"
       [body]="note.body"
 
