@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2, Input } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-note-card',
@@ -8,6 +8,9 @@ import { Component, ElementRef, ViewChild, AfterViewInit, Renderer2, Input } fro
 export class NoteCardComponent implements AfterViewInit {
   @Input() title!: string;
   @Input() body!: string;
+  @Input() link!: string;
+
+  @Output('del') delEvent: EventEmitter<void> = new EventEmitter<void>();
 
 
   @ViewChild('truncator', { static: true }) truncator!: ElementRef<HTMLElement>;
@@ -20,12 +23,16 @@ export class NoteCardComponent implements AfterViewInit {
   constructor(private renderer: Renderer2) { }
 
   ngAfterViewInit() {
-    this.style = window.getComputedStyle(this.bodyText.nativeElement, null);
-    this.viewableHeight = parseInt(this.style.getPropertyValue("height"), 10);
     if (this.noteP.nativeElement.offsetHeight > this.bodyText.nativeElement.clientHeight) {
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'block');
     } else {
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
     }
+  }
+
+
+  onDelButtonClick() {
+    this.delEvent.emit();
+
   }
 }
