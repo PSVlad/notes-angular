@@ -1,9 +1,10 @@
 .main {
-  max-width: 600px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   margin: auto;
   padding-top: 50px;
+  
 }
 
 .search {
@@ -11,15 +12,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
-}
-
-.control {
   position: relative;
 }
 
+
 .icon {
   position: absolute;
-  left: 25px;
+  left: -45px;
   top: 50%;
   transform: translateY(-50%);
   color: #00ecf0;
@@ -31,6 +30,7 @@
   border: 0;
   outline: 0;
   padding: 10px 10px 10px 50px;
+  margin-right: 25px;
   border-radius: 25px;
 
   font-size: 24px;
@@ -77,13 +77,8 @@ app-note-card {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 500px;
-  height: 40px;
-
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 47px;
+  height: 47px;
 }
 
 .floating-add-button {

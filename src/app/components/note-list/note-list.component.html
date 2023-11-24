@@ -2,11 +2,14 @@
 
   <div class="search">
     <p class="control">
-      <input type="text" class="input" (keyup)="filter($event)" placeholder="Search" />
+      <input #filterInput type="text" class="input" (keyup)="filter($event)" placeholder="Search" />
       <span class="icon">
         <i class="fas fa-search"></i>
       </span>
     </p>
+    <div class="button">
+      <button class="button floating-add-button" routerLink="new">+</button>
+    </div>
   </div>
 
   <div class="notes-list">
@@ -24,7 +27,5 @@
   </div>
 
 
-  <div class="button">
-    <button class="button floating-add-button" routerLink="new">+ Add</button>
-  </div>
+  
 </div>

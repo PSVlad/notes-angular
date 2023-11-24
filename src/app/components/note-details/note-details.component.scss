@@ -87,9 +87,7 @@
 
 input, textarea {
 
-  word-wrap: break-word;
-  text-wrap: unrestricted;
-  overflow-wrap: break-word;
+  white-space: pre-wrap;
 
   &.ng-invalid.ng-touched {
     border: 1px solid #ff4141;
