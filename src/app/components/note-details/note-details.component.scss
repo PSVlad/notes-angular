@@ -14,12 +14,11 @@
   margin-bottom: 25px;
 }
 
-
 .label {
   font-weight: 700;
   font-size: 24px;
   color: #5efcff;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .field-buttons {
@@ -28,7 +27,7 @@
   justify-content: flex-end;
 }
 
-.control-buttons{
+.control-buttons {
   margin-left: 25px;
   width: 70px;
   height: 30px;
@@ -43,18 +42,35 @@
   color: var(--light-orange);
   font-size: 16px;
 
-
   &.is-cancel {
     text-decoration: underline;
-    background: #ff4141;
+    background: var(--light-orange);
+    color: darken(#c3e8ef, 65%);
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      background: #ff4141;
+      color: var(--light-orange);
+    }
   }
 
   &.is-success {
-    background: #00ecf0
+    background: #00ecf0;
+
+    transition: background 0.5s ease-in-out;
+
+    &:disabled {
+      background: darken(#00ecf0, 10%);
+    }
+
+    &:hover:disabled {
+      background: darken(#00ecf0, 10%);
+    }
+
+    &:hover {
+      background: lighten(#00ecf0, 15%);
+    }
   }
 }
-
-
 
 .textarea,
 .input {
@@ -76,18 +92,15 @@
   }
 
   &:focus {
-
     box-shadow: 1px 1px 10px var(--dark-orange);
     background: var(--dark-orange);
     transition: 0.5s;
-
-   
   }
 }
 
-input, textarea {
-
-  white-space: pre-wrap;
+input,
+textarea {
+  white-space: wrap;
 
   &.ng-invalid.ng-touched {
     border: 1px solid #ff4141;

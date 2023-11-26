@@ -90,6 +90,16 @@ app-note-card {
   font-weight: 700;
   color: var(--light-orange);
 
-  box-shadow: 0px 2px 15px 2px #00ecf04d;
+  box-shadow: 0px 2px 15px 2px rgba(#000, 0.068);
   background: #00ecf0;
+
+  transition: background .25s ease-in-out, box-shadow .25s ease-in-out;
+
+  &:hover {
+    background: lighten(#00ecf0, 5%);
+    box-shadow: 0px 2px 15px 2px rgba(#000, 0.068);
+  }
+  
+
 }
+
